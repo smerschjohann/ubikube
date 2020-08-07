@@ -15,10 +15,10 @@ LABEL summary="$SUMMARY" \
 	maintainer="Simon Merschjohann <simon@merschjohann.net>"
 
 # Install requirements
+RUN microdnf install -y tar gzip findutils
 RUN curl https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/openshift-client-linux.tar.gz | tar -xvzC /usr/local/bin/ \
-    && curl -L https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64 \
-    && chmod a+x /usr/local/bin/* \
-    && microdnf install -y findutils
+    && curl https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64 -o /usr/local/bin/jq \
+    && chmod a+x /usr/local/bin/*
 
 USER 1001
 

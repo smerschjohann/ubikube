@@ -20,6 +20,7 @@ RUN curl https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/opensh
     && curl https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64 -o /usr/local/bin/jq \
     && chmod a+x /usr/local/bin/*
 
+ENV HOME=/tmp
 USER 1001
 
 ENTRYPOINT [ "kubectl" ]
